@@ -12,7 +12,7 @@ import re
 from collections import Counter
 from PIL import Image
 import datetime
-from st_material_table import st_material_table
+
 
 #import variables
 
