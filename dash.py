@@ -73,7 +73,9 @@ def draw_numbers(since,until,df,titre):
 	#fig.update_xaxes(ticktext=legend,tickvals=tickes)
 	fig.update_layout(title=titre,legend=dict(orientation="h",yanchor="bottom",y=1.02,xanchor="right", x=1,font=dict(size=15),title=dict(font=dict(size=15))))
 	
-	return fig
+	maximum=d['created_at'].max()
+	
+	return fig,maximum
 
 def echelle(since,until):
 	start=since.month
@@ -151,9 +153,9 @@ def main():
 	
 	data=load_data()
 	
-	topic = st.sidebar.radio('Select which tweets you want to visualize?',('All Tweets','Election','Security','Disaster'))
+	topic = st.sidebar.radio('Select which tweets you want to visualize?',('All Tweets','Election','Security'))
 	
-	if topic in ['Election','Security','Disaster']:
+	if topic in ['Election','Security']:
 		if topic=='Security':
 			theme='insecurity'
 		else:
@@ -181,9 +183,9 @@ def main():
 	#st.dataframe(tweets[positive])
 	#st.dataframe(tweets[-positive])
 	
-	fig= draw_numbers(pd.to_datetime("2020-01-01"),pd.to_datetime("2021-07-31"),tweets,'Tweets per day') 
+	fig,maximum= draw_numbers(pd.to_datetime("2020-01-01"),pd.to_datetime("2021-07-31"),tweets,'Tweets per day') 
 	
-	fig.update_layout(shapes=[dict(type="rect",xref="x",yref="y",x0=debut,y0="0",x1=fin,y1="400",
+	fig.update_layout(shapes=[dict(type="rect",xref="x",yref="y",x0=debut,y0="0",x1=fin,y1=maximum,
         fillcolor="lightgray", opacity=0.9,line_width=0,layer="below"),])
 	
 	fig2=draw_numbers_pos_neg(debut,fin,tweets[positive],tweets[-positive],'Tweets per day') 
