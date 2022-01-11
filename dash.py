@@ -32,7 +32,8 @@ st.set_page_config(layout="wide")
 #import des données
 @st.cache
 def load_data():
-	data=pd.read_csv('tweets.csv',sep='\t')
+	data=pd.read_csv('tweets1.csv',sep='\t')
+	data=data.append(pd.read_csv('tweets2.csv',sep='\t'))
 	data['created_at']=data['created_at'].apply(lambda x:pd.to_datetime(x))
 	return data
 
