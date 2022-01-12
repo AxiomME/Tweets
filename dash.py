@@ -14,19 +14,6 @@ from PIL import Image
 import datetime
 
 
-#import variables
-
-#########################  a faire #########################################
-# 
-#
-###########################################################################"
-
-
-#Variables Correl Description
-#becomes 
-#variable_x variable_y description
-
-
 st.set_page_config(layout="wide")
 
 #import des données
@@ -142,12 +129,6 @@ def check_words(x,words):
 calendar={1:'Jan',2:'Feb',3:'Mar',4:'Apr',5:'Mai',6:'Jun',7:'Jul',8:'Aug',9:'Sep',10:'Oct',11:'Nov',12:'Dec'}
 calendar2={'Jan':31,'Feb':28,'Feb2':29,'Mar':31,'Apr':30,'Mai':31,'Jun':30,'Jul':31,'Aug':31,\
            'Sep':30,'Oct':31,'Nov':30,'Dec':31}
-
-	
-
-#st.write(data.columns)
-#st.write(correl.shape)
-
 
 def main():	
 	
