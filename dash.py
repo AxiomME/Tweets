@@ -96,7 +96,6 @@ def echelle(since,until):
 			year+=1
 	#traiter les années bisextiles
 	return legend,ticks
-
 	
 def moyenne(liste):
     if len(liste)<=14:
